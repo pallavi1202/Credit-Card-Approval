@@ -13,14 +13,13 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 
 def data_pre_processing(df):
-    data = pd.read_csv(r"C:\Users\palla\OneDrive\Desktop\Study Material\Python\project\CC_data.csv") #Please find the dataset attached
-    print(data)
+    data = pd.read_csv(r"CC_data.csv") #Please find the dataset attached
     # Replace "?" with NaN
     df = data.copy()
-    data_info = df.info()
-    data_describe = df.describe()
-    print(data_info)
-    print( data_describe)
+#     data_info = df.info()
+#     data_describe = df.describe()
+#     print(data_info)
+#     print( data_describe)
     df.replace('?', np.NaN, inplace=True)
     # Convert Age to numeric
     df["Age"] = pd.to_numeric(df["Age"]) 
@@ -92,7 +91,7 @@ def log_reg(df):
 
 if __name__ == '__main__':
     #Please find the dataset attached
-    credit_card_df = pd.read_csv(r"C:\Users\palla\OneDrive\Desktop\Study Material\Python\project\CC_data.csv")    #read data
+    credit_card_df = pd.read_csv(r"CC_data.csv")    #read data
     cc_df=data_pre_processing(credit_card_df)
     cc_df=imputeWithMode(cc_df)    
     X_train, X_test, y_train, Y_test,X = model(cc_df)
